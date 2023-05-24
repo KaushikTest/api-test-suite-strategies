@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Performance Testing With k6</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // JavaScript for copy button
+    function copyCode() {
+      const codeElement = document.getElementById('code');
+      const range = document.createRange();
+      range.selectNode(codeElement);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    }
+  </script>
+  <style>
+    /* Add your custom styles here */
+
+    body {
+      line-height: 20px;
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    body::after {
+      content: '';
+      display: block;
+      height: 90px;
+      /* Set same as footer's height */
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: rgb(226, 224, 224);
+      /* display: flex;
+  flex-direction: column; */
+    }
+
+    /* header {
+      min-height: 50px;
+      background: lightcyan;
+    } */
+
+    footer {
+      background: PapayaWhip;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      background-color: hsl(0, 11%, 7%);
+      padding: 5px;
+      font-size: 14px;
+      color: #f3f1f1;
+      display: block;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .copy-btn {
+      background-color: #555;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      float: right;
+    }
+
+    .content {
+      max-width: 1000px;
+      /* Adjust this value as needed */
+      margin: auto;
+      /* margin-left: 220px;
+      padding: 20px; */
+    }
+
+    h1 {
+      max-width: 1000px;
+      font-size: 28px;
+      font-weight: bold;
+      margin: auto
+    }
+
+    h2 {
+      max-width: 1000px;
+      font-size: 22px;
+      font-weight: bold;
+      margin: auto
+    }
+
+    p {
+      max-width: 1000px;
+      margin: auto
+    }
+
+    word {
+      font-weight: bold;
+    }
+
+    header {
+      background-color: #80b4e5;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #665353;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .sidebar {
+      width: 200px;
+      height: 500px;
+      background-color: #dddcd6;
+      padding: 20px;
+      overflow-y: auto;
+      /* Enable vertical scroll */
+      float: left;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar li a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .navigation {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navigation li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .navigation li a {
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="logo">My Test Insights</h1>
+    <p class="tagline">Sharing knowledge</p>
+    <ul class="navigation">
+      <li><a href="index.html">About Me</a></li>
+      <!-- Add more navigation links as needed -->
+    </ul>
+  </header>
+  <br>
+
+  <div class="sidebar">
+    <ul>
+      <li><a href="./api-test-strategies.html">API Test Suite Strategies</a></li>
+      <li><a href="./performance-testing-with-k6.html">Performance testing with k6</a></li>
+
+      <!-- Add more list items for additional pages -->
+    </ul>
+  </div>
+
+  <h1>Performance Testing With k6</h1>
+  <br>
+  <div class="content">
+    <main>
+      <article>
+        <section>
+          <h2>Overview</h2>
+          <br>
+          <p class="content">Performance testing plays a vital role in ensuring that software applications meet the expectations of end-users, delivering optimal performance under various conditions. It involves assessing an application's responsiveness, scalability, and stability to identify potential bottlenecks and areas for improvement. By simulating real-world scenarios and stress-testing the system, performance testing enables organizations to deliver reliable and high-performing software.</p>
+        </section>
+        <br>
+        <section>
+          <h2>Terminologies in Performance Testing</h2>
+          <br>
+          <p class="content">To effectively navigate the world of performance testing, its essential to understand the key terminologies commonly used in this area. Here are some fundamental terms:</p>
+          <ul>
+            <li class="content">Throughout: It refers to the number of requests or transactions that an applications can handle within a give time frame. It measures the system's capacity to process requests effectively.</li><br>
+            <li class="content">Response Time: It is the elapsed time between sending a request to the system and receiving the corresponding response. It measure the system's speed.</li><br>
+            <li class="content">Concurrency: It refers to the number of users or requests that simultaneously access the system. Evaluating concurrency helps assess how well teh application handles multiple simultaneous users.</li><br>
+            <li class="content">Scalability: It refers to the system's ability to handle increasing workloads and user loads by adding more resources, such as servers or network capacity. It measures the system's ability to grow and adapt to changing demands.</li><br>
+            <li class="content">Stress Testing: It involves suppressing the system to extreme workloads or unfavorable conditions to evaluate its performance and stability under pressure. It helps identify the system's breaking points and assess its resilience.</li><br>
+            <li class="content">Load Testing: It simulates real-world user loads on the applications to evaluate its performance and behavior under typical usage scenarios. It helps determine how the system handles anticipated loads and whether it meets performance expectations.</li>
+        </ul>
+        <p class="content">By familiarizing yourself with these common performance testing terminologies, you'll be better equipped to understand and communicate performance testing concepts, analyze test results and engage in meaningful discussions with fellow testers and stakeholders.</p>
+        </section>
+        <br>
+        <section>
+          <h2>Introduction to k6 for Performance Testing</h2>
+          <br>
+          <p class="content">k6 is a powerful open-source performance testing tool designed specifically for developers. It empowers teams to build scalable and robust applications by enabling them to test the performance and reliability of their systems. Let's explore the key features of k6 for performance testing.</p>
+          <ul>
+            <li class="content">JavaScript-based scripting: k6 allows performance tests to be scripted using JavaScript, a widely-used and versatile programming language. This enables developers to leverage their existing JavaScript skills and easily create performance test scenarios.</li><br>
+            <li class="content">Virtual user simulation: k6 can simulate thousands of virtual users, enabling realistic load scenarios to stress test the application under various conditions. Developers can define the behavior and actions of virtual users, such as sending requests, handling cookies, and managing sessions.</li><br>
+            <li class="content">Real-time and detailed metrics: k6 provides comprehensive and real-time performance metrics during test execution. It captures key metrics like response time, throughput, latency, and error rates, allowing developers to analyze and monitor the performance of their applications.</li><br>
+            <li class="content">Extensibility and integration: k6 offers a rich ecosystem of extensions and integrations with other tools and frameworks. It can be integrated seamlessly into CI/CD pipelines, enabling performance tests to be executed as part of the development and deployment process.</li><br>
+            <li class="content">Result analysis and reporting: k6 generates detailed performance test reports in various formats, including HTML, JSON, and JUnit XML. These reports provide insights into performance trends, errors, and other critical metrics, facilitating performance analysis and troubleshooting.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Benefits of k6 for Performance Testing</h2>
+          <br>
+          <p class="content">With its user-friendly approach and scripting capabilities, k6 has gained popularity among the performance testing community. Let's explore the key benefits of k6 for performance testing. </p>
+          <ul>
+            <li class="content">Ease of use: With its simple and intuitive syntax, k6 makes it easy for anyone to create and maintain performance tests without requiring extensive testing expertise.</li><br>
+            <li class="content">Developer-centric approach: k6 empowers developers to take ownership of performance testing, allowing them to identify and fix performance issues early in the development cycle.</li><br>
+            <li class="content">Efficient resource utilization: k6 is lightweight and designed to utilize system resources efficiently, allowing for running tests with a high number of virtual users without excessive hardware requirements.</li>
+          </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>Running Performance Tests with k6 locally</h2>
+          <br>
+          <p class="content">Let's jump to the fun part now where we will run a basic script in k6. I am not mentioning here on the details of the installation of k6. You can find this <a href="https://k6.io/docs/get-started/installation/" title="k6 installation">document</a> helpful on installing k6 on different operations systems. Now
+          you can simply create a test javascript file as mentioned below.</p>
+          <br>
+          <code id="code">
+            <button class="copy-btn" onclick="copyCode()">Copy</button>
+            import http from 'k6/http';
+            import { sleep } from 'k6';
+        
+            export default function () {
+              // Make a GET request to the target API endpoint
+              const response = http.get('https://www.google.com');
+        
+              // Sleep for a specified duration between requests
+              sleep(1);
+            }
+          </code>
+          <br>
+          <p>In this example we are taking a sending a get request. You can replace the API which you want to test and simply run the command k6 run file-name.js. By default k6 will run this with config of 1 iteration and 1 virtual user.
+            At the end of the run you will see k6 prints a summarized result to the console. It will include median, average, minimum, maximum, p90, p95, p99 values. In the upcoming article we will explore further on how to config k6 to run with multiple virtual users and iterations.</p>
+        </section>
+        <br>
+        <section>
+          <h2>Conclusion</h2>
+          <br>
+          <p class="content">By running performance tests with k6, developers can gain valuable insights into their application's performance characteristics and identify areas for improvement. This process enables them to optimize the application's performance, enhance user experiences and ensure the system can handle anticipates user loads efficiently. I hope this article will help you getting start with k6.
+          </p>
+        </section>
+
+        <section>
+          <h3>References</h3>
+          <ul>
+            <li class="content"><a href="https://k6.io/docs/get-started/installation/" title="k6 installation">k6 Installation</a></li>
+            <li class="content"><a href="https://k6.io/docs/get-started/results-output/" title="k6 results output">k6 Results output</a></li>
+        </section>
+    </main>
+  </div>
+
+  <footer>
+    <p><a href="https://github.com/KaushikTest" title="Checkout my Github profile"><img src="./github-mark-white.png"
+          style="width:30px;height:30px;"></a>&nbsp;&nbsp;
+      <a href="https://www.linkedin.com/in/kaushik-chetlur/" title="Connect with me in LinkedIn"><img
+          src="./LI-In-Bug.png" style="width:30px;height:30px;"></a>
+    </p>
+  </footer>
+
+</body>
+
+</html>
