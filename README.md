@@ -18,6 +18,10 @@ To get started with the Test Insights Blog, simply go to https://kaushiktest.git
 
 I believe in the power of collaboration and community-driven knowledge sharing. If you would like to contribute to the Test Insights Blog, you are welcome to submit your own articles or suggest topics for future articles. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details on how to contribute.
 
+## 🚓 License
+
+This repository is [MIT licensed](LICENSE).
+
 ## 📞 Stay Connected
 
 Connect with me on LinkedIN
