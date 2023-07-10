@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Testing Principles</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // JavaScript for copy button
+    function copyCode() {
+      const codeElement = document.getElementById('code');
+      const range = document.createRange();
+      range.selectNode(codeElement);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    }
+  </script>
+  <style>
+    /* Add your custom styles here */
+
+    body {
+      line-height: 20px;
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    body::after {
+      content: '';
+      display: block;
+      height: 90px;
+      /* Set same as footer's height */
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: rgb(226, 224, 224);
+      /* display: flex;
+  flex-direction: column; */
+    }
+
+    /* header {
+      min-height: 50px;
+      background: lightcyan;
+    } */
+
+    footer {
+      background: PapayaWhip;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      background-color: hsl(0, 11%, 7%);
+      padding: 5px;
+      font-size: 14px;
+      color: #f3f1f1;
+      display: block;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .copy-btn {
+      background-color: #555;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      float: right;
+    }
+
+    .content {
+      max-width: 1000px;
+      /* Adjust this value as needed */
+      margin: auto;
+      /* margin-left: 220px;
+      padding: 20px; */
+    }
+
+    h1 {
+      max-width: 1000px;
+      font-size: 28px;
+      font-weight: bold;
+      margin: auto
+    }
+
+    h2 {
+      max-width: 1000px;
+      font-size: 22px;
+      font-weight: bold;
+      margin: auto
+    }
+
+    p {
+      max-width: 1000px;
+      margin: auto
+    }
+
+    word {
+      font-weight: bold;
+    }
+
+    header {
+      background-color: #80b4e5;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #665353;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .sidebar {
+      width: 200px;
+      height: 500px;
+      background-color: #dddcd6;
+      padding: 20px;
+      overflow-y: auto;
+      /* Enable vertical scroll */
+      float: left;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar li a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .navigation {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navigation li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .navigation li a {
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="logo">My Test Insights</h1>
+    <p class="tagline">Sharing knowledge</p>
+    <ul class="navigation">
+      <li><a href="index.html">About Me</a></li>
+      <!-- Add more navigation links as needed -->
+    </ul>
+  </header>
+  <br>
+
+  <div class="sidebar">
+    <ul>
+      <li><a href="./api-test-strategies.html">API Test Suite Strategies</a></li>
+      <li><a href="./performance-testing-with-k6.html">Performance testing with k6</a></li>
+      <li><a href="./testing-principles.html">Testing Principles</a></li>
+
+      <!-- Add more list items for additional pages -->
+    </ul>
+  </div>
+
+  <h1>Testing Principles</h1>
+  <br>
+  <div class="content">
+    <main>
+      <article>
+        <section>
+          <h2>Introduction</h2>
+          <br>
+          <p class="content">Testing plays a major role in software development, ensuring that applications and systems
+            meet the desired quality standards.
+            Effective testing not only helps identify and rectify defects but also enhances user satisfaction, mitigates
+            risks and safeguards business reputation.
+            To achieve these goals, software testers follow certain fundamental principles that guide their testing
+            efforts. These principles are based on the best practices and lessons learned from past experiences.
+            In this article, we will explore the key principles of software testing and how they help deliver
+            high-quality software. Understanding and applying these principles can significantly improve teh
+            effectiveness and efficiency of your testing process. So let's dive in!
+          </p>
+        </section>
+        <br>
+        <section>
+          <h2>1. Testing shows the presence of defects, not their absence</h2>
+          <br>
+          <p class="content">The primary purpose of testing is to uncover defects or issues within a system or
+            application. By executing test cases and comparing the actual results
+            with expected results, testers can identify discrepancies or failures that indicate the presence of defects.
+            Testing reduces the probability of undiscovered defects remaining in the software.
+            This principle emphasizes the importance of using testing as a means of uncovering and addressing issues
+            early on in the development lifecycle. It also highlights the fact that testing cannot guarantee that the
+            software is defect-free.
+          </p>
+
+
+        </section>
+        <br>
+        <section>
+          <h2>2. Exhaustive testing is impossible</h2>
+          <br>
+          <p class="content">In an ideal world, we would test every possible combination of inputs, conditions and
+            scenarios to ensure comprehensive coverage. However, the reality is that often impractical or even
+            impossible to achieve exhaustive testing due to the
+            complexity and vastness of modern software systems. Exhaustive testing is not only time-consuming and
+            expensive but also unnecessary. Instead, testing efforts should be focused on areas of higher risk or
+            importance, optimizing the testing process within the given time and resource constraints.
+          </p>
+          <br>
+        </section>
+
+        <section>
+          <h2>3. Early testing saves time and money</h2>
+          <br>
+          <p class="content">Testing activities should commence as early as possible in the software development
+            lifecycle. Early testing helps identify defects when they are less expensive to fix and allows for better
+            test planning, risk mitigation and validation of requirements. It is sometimes also referred to as shift
+            left. By integrating testing into the development process from the outset, organizations can minimize
+            rework, improve efficiency and deliver higher=quality software products.
+          </p>
+          <br>
+        </section>
+
+        <section>
+          <h2>4. Defects cluster together</h2>
+          <br>
+          <p class="content">Defects tend to cluster or concentrate in specific areas of a system. This principle
+            suggests that a significant portion of defects can be found in a relatively small number of modules or
+            components.
+            Predicting where defects are likely to occur can help testers focus their efforts on those areas and improve
+            the effectiveness of their testing. This principle is also known as the Pareto principle or the 80/20 rule.
+          </p>
+
+        </section>
+        <br>
+        <section>
+          <h2>5. Beware of the pesticide paradox</h2>
+          <br>
+          <p class="content">The pesticide paradox states that if the same set of test cases is repeated over and over
+            again, eventually the same set of defects will be found. This is because the test cases will no longer be
+            effective in finding new defects.
+            To address this, testers need to regularly review and update their test cases. They should introduce new
+            test scenarios, modify existing ones and include additional test cases to ensure thorough test coverage.
+            This iterative approach helps uncover new defects that may arise due to system changes, enhancements or
+            newly introduced features. It also helps improve the quality of test cases and the overall testing process.
+          </p>
+          <br>
+        </section>
+
+        <section>
+          <h2>6. Testing is context dependent</h2>
+          <br>
+          <p class="content">Every software system is unique, with its own set of requirements, constraints and
+            stakeholders. Hence, testing approaches and techniques should be tailored to the specific context in which
+            the system operates.
+            The effectiveness of testing depends on the context of the software being tested. The context includes the
+            purpose of the software, the intended users, the environment in which it will be used and the risks
+            associated with its use.
+            For example, a web application may require functional testing, usability testing, performance testing and
+            security testing.
+            On the other hand, a mobile application may require functional testing, compatibility testing, performance
+            testing and security testing. Applying the right testing practices to the given context ensures that testing
+            efforts are efficient and aligned
+            with the desired quality goals.
+          </p>
+          <br>
+        </section>
+
+        <section>
+          <h2>7. Absence of errors is a fallacy</h2>
+          <br>
+          <p class="content">Finding and fixing defects does not guarantee that a system is completely error-free. Some
+            organizations expect that testers can
+            identify and eliminate all defects in a system. However, this is not possible in practice. Even after
+            extensive testing, there is always a possibility that some defects may remain undetected.
+            This principles emphasizes the need for ongoing vigilance and the incorporation of risk management practices
+            to account for potential future issues.
+          </p>
+          <br>
+        </section>
+
+        <section>
+          <h2>Conclusion</h2>
+          <br>
+          <p class="content">Testing should be viewed as an ongoing and iterative process that spans the entire software
+            development lifecycle. Continuous testing ensures that quality is
+            maintained as the system evolves and changes over time. Embracing practices such as automated testing,
+            continuous integration and continuous delivery helps in achieving faster feedback, efficient collaboration
+            and improved
+            over all quality. By following the principles outlined in this article, you can build a robust testing
+            process that delivers high-quality software products.
+          </p>
+          <br>
+        </section>
+
+        <section>
+          <h3>References</h3>
+          <p>The above article is inspired by the ISTQB (International Software Testing Qualifications Board) CTFL syllabus.</p>
+          <ul>
+            <li class="content"><a href="https://www.istqb.org/certifications/certified-tester-foundation-level-v3-1" title="ISTQB">ISTQB</a></li>
+        </section>
+    </main>
+  </div>
+
+  <footer>
+    <p><a href="https://github.com/KaushikTest" title="Checkout my Github profile"><img src="./github-mark-white.png"
+          style="width:30px;height:30px;"></a>&nbsp;&nbsp;
+      <a href="https://www.linkedin.com/in/kaushik-chetlur/" title="Connect with me in LinkedIn"><img
+          src="./LI-In-Bug.png" style="width:30px;height:30px;"></a>
+    </p>
+  </footer>
+
+</body>
+
+</html>
